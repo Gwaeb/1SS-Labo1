@@ -1,0 +1,5 @@
+try-catch:
+https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.exists?view=net-5.0
+
+task pour async:
+https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.run?view=net-5.0

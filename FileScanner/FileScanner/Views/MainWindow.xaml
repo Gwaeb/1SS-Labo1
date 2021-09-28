@@ -1,0 +1,33 @@
+﻿<Window x:Class="FileScanner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileScanner"
+        
+        mc:Ignorable="d"
+        Title="File Scanner" Height="450" Width="800">
+    <DockPanel>        
+        <StackPanel>
+            <Button Content="Ouvrir un dossier" Command="{Binding OpenFolderCommand}" />
+            <Button Content="Scanner le dossier" Command="{Binding ScanFolderCommand}" CommandParameter="{Binding SelectedFolder}" />
+        </StackPanel>
+        
+        <StatusBar DockPanel.Dock="Bottom">
+            <TextBlock Text="Selected folder : "/>
+            <TextBlock Text="{Binding SelectedFolder}"/>
+        </StatusBar>
+        <Grid>
+            <ListView ItemsSource="{Binding FolderItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <Image Source="{Binding Path=image}" Width="15" Height="15" />
+                            <TextBlock Text="{Binding Path=path}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </DockPanel>
+</Window>
